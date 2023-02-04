@@ -1,7 +1,7 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
-import { useEffect, useState, memo } from 'react';
+import { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
 const toggleTheme = () => {
@@ -50,15 +50,15 @@ function Sidebar() {
 			</div>
 			<div className={sidebarClasses}>
 				<ul>
-					<Link className='text-link' to='/'>
+					<NavLink className='text-link' to='/'>
 						<li>Главная</li>
-					</Link>
-					<Link className='text-link' to='/cats'>
+					</NavLink>
+					<NavLink className='text-link' to='/cats'>
 						<li>Котики</li>
-					</Link>
-					<Link className='text-link' to='/register'>
+					</NavLink>
+					<NavLink className='text-link' to='/register'>
 						<li>Регистрация</li>
-					</Link>
+					</NavLink>
 				</ul>
 				<div className='theme-list'>
 					<FontAwesomeIcon className={darkClass} onClick={onToggleTheme} size='2x' icon={solid('moon')} />
@@ -69,4 +69,4 @@ function Sidebar() {
 	);
 }
 
-export default memo(Sidebar);
+export default Sidebar;
