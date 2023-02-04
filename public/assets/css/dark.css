@@ -1,0 +1,18 @@
+:root {
+	--text-color: #fffffb;
+	--bg-color: #282828;
+	--bg-hover: #414141;
+	--content-color: var(--bg-hover);
+	--bg-color-secondary: #AEB4A9;
+	--bg-color-opacity: #fffffb19;
+	--shadow-color: #e8f1f2;
+	--button-primary-color: #51A3A3;
+	--button-primary-blur: #76a6a6;
+	--button-secondary-color: #d62828;
+	--content-padding: 15px;
+	--box-shadow: 0px 0px 10px 0px var(--shadow-color);
+	font-family: 'Courier New', Courier, monospace;
+}
+:root{
+	color: var(--text-color)
+}

@@ -1,0 +1,8 @@
+.reg-form {
+	width: 600px;
+}
+@media (max-width: 800px) {
+	.reg-form {
+		width: 100%;
+	}
+}
