@@ -5,9 +5,10 @@ import classnames from 'classnames';
 import { Cat } from '../../../store/cats/ICats';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {solid, regular} from '@fortawesome/fontawesome-svg-core/import.macro'
+import { selectFavouriteCats } from '../../../store/cats/cats.slice';
 
 function CatCard({ cat, onDelete, onLike }: {cat: Cat, onDelete: (arg: string) => void, onLike: (arg: string) => void}) {
-	const { favourites } = useAppSelector((state) => state.favouriteCats);
+	const { favourites } = useAppSelector(selectFavouriteCats);
 	const isCatLiked = useMemo(() => {
 		return favourites.includes(cat.id);
 	}, [favourites, cat.id]);

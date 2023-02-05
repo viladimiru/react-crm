@@ -1,43 +1,79 @@
 import { useLocation, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import classnames from 'classnames';
+import { useAppSelector } from '../../hooks/redux';
+import { selectAuth } from '../../store/auth/auth.slice';
 
 const toggleTheme = () => {
-	const node = document.getElementById('style-direction') as HTMLLinkElement
-	const prev = node.href.match('(dark|light)')![0]
+	const node = document.getElementById('style-direction') as HTMLLinkElement;
+	const prev = node.href.match('(dark|light)')![0];
 	const next = {
 		dark: 'light',
-		light: 'dark'
-	}[prev]
-	node.href = node.href.replace(prev, next!)
-	return next!
-}
+		light: 'dark',
+	}[prev];
+	node.href = node.href.replace(prev, next!);
+	return next!;
+};
 
 function Sidebar() {
-	const [theme, setTheme] = useState('dark')
+	const [theme, setTheme] = useState('dark');
 	const location = useLocation();
-
 	useEffect(() => {
 		setSidebarVisibility(false);
 	}, [location]);
 	const [sidebarVisibility, setSidebarVisibility] = useState(false);
-	const sidebarClasses = classnames({
-		sidebar: true,
-		'sidebar--active': sidebarVisibility,
-	});
+	const sidebarClasses = useMemo(() => {
+		return classnames({
+			sidebar: true,
+			'sidebar--active': sidebarVisibility,
+		});
+	}, [sidebarVisibility]);
 
-	const toggleVisibility = () => setSidebarVisibility(!sidebarVisibility);
+	const toggleVisibility = useCallback(() => {
+		setSidebarVisibility(!sidebarVisibility);
+	}, [sidebarVisibility]);
 	const onToggleTheme = () => {
-		setTheme(toggleTheme())
-	}
-	const darkClass = classnames({
-		active: theme === 'dark'
-	})
-	const lightClass = classnames({
-		active: theme === 'light'
-	})
+		setTheme(toggleTheme());
+	};
+	const darkClass = useMemo(() => {
+		return classnames({
+			active: theme === 'dark',
+		});
+	}, [theme]);
+	const lightClass = useMemo(() => {
+		return classnames({
+			active: theme === 'light',
+		});
+	}, [theme]);
+
+	const { isAuthed } = useAppSelector(selectAuth);
+
+	const navList = useMemo(() => {
+		if (isAuthed) {
+			return [
+				{
+					text: 'Главная',
+					link: '/',
+				},
+				{
+					text: 'Котики',
+					link: '/cats',
+				},
+				{
+					text: 'Регистрация',
+					link: '/register',
+				},
+			];
+		}
+		return [
+			{
+				text: 'Логин',
+				link: '/login',
+			},
+		];
+	}, [isAuthed]);
 
 	return (
 		<>
@@ -50,19 +86,25 @@ function Sidebar() {
 			</div>
 			<div className={sidebarClasses}>
 				<ul>
-					<NavLink className='text-link' to='/'>
-						<li>Главная</li>
-					</NavLink>
-					<NavLink className='text-link' to='/cats'>
-						<li>Котики</li>
-					</NavLink>
-					<NavLink className='text-link' to='/register'>
-						<li>Регистрация</li>
-					</NavLink>
+					{navList.map((item) => (
+						<NavLink key={item.link} className='text-link' to={item.link}>
+							<li>{item.text}</li>
+						</NavLink>
+					))}
 				</ul>
 				<div className='theme-list'>
-					<FontAwesomeIcon className={darkClass} onClick={onToggleTheme} size='2x' icon={solid('moon')} />
-					<FontAwesomeIcon className={lightClass} onClick={onToggleTheme} size='2x' icon={solid('sun')} />
+					<FontAwesomeIcon
+						className={darkClass}
+						onClick={onToggleTheme}
+						size='2x'
+						icon={solid('moon')}
+					/>
+					<FontAwesomeIcon
+						className={lightClass}
+						onClick={onToggleTheme}
+						size='2x'
+						icon={solid('sun')}
+					/>
 				</div>
 			</div>
 		</>

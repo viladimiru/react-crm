@@ -3,11 +3,14 @@
 @import url('./pages/cats/index.css');
 @import url('./pages/register/index.css');
 @import url('./pages/main/index.css');
+:root {
+	--app-height: 100%;
+}
 
 .l-grid {
 	width: 100%;
 	display: grid;
-	min-height: 100vh;
+	min-height: var(--app-height);
 	grid-template-columns: 250px 1fr;
 	grid-template-rows: 1fr;
 	font-size: 16px;
@@ -102,6 +105,9 @@
 	border-radius: 5px;
 	padding: 10px;
 	transition: 250ms ease-in-out;
+}
+.button:disabled {
+	opacity: .7;
 }
 .button:not(:disabled) {
 	cursor: pointer;

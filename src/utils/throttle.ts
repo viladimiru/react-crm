@@ -1,6 +1,6 @@
 function throttle(fn: any, timer: number): Function {
 	let isPending: boolean, throttledArgs: any, throttledCtx: any
-	return function () {
+	return function (this: any) {
 		if (!isPending) {
 			isPending = true
 			fn.apply(this, arguments)

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { RootState } from '..'
 
 const FAV_CATS = 'FAV_CATS'
 
@@ -27,3 +28,5 @@ export const catsSlice = createSlice({
 
 export const catsActions = catsSlice.actions
 export const catsReducer = catsSlice.reducer
+
+export const selectFavouriteCats = (state: RootState) => state.favouriteCats

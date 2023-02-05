@@ -7,6 +7,7 @@ import { useActions } from '../../hooks/actions';
 import { useAppSelector } from '../../hooks/redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { selectFavouriteCats } from '../../store/cats/cats.slice';
 
 const limit = 10;
 
@@ -37,7 +38,7 @@ function Cats() {
 	}
 
 	const { addFavourite, removeFavourite } = useActions();
-	const { favourites } = useAppSelector((state) => state.favouriteCats);
+	const { favourites } = useAppSelector(selectFavouriteCats);
 
 	function likeCat(catId: string) {
 		if (favourites.includes(catId)) {
