@@ -17,36 +17,41 @@ const toggleTheme = () => {
 	return next!;
 };
 
+const bodyScroll = () => {
+	const node = document.getElementsByTagName('body')[0];
+	node.classList.toggle('scroll-locked');
+};
+
 function Sidebar() {
 	const [theme, setTheme] = useState('dark');
 	const location = useLocation();
+
 	useEffect(() => {
 		setSidebarVisibility(false);
 	}, [location]);
 	const [sidebarVisibility, setSidebarVisibility] = useState(false);
-	const sidebarClasses = useMemo(() => {
-		return classnames({
-			sidebar: true,
-			'sidebar--active': sidebarVisibility,
-		});
-	}, [sidebarVisibility]);
+
+	const sidebarClasses = useMemo(() => classnames({
+		sidebar: true,
+		'sidebar--active': sidebarVisibility,
+	}), [sidebarVisibility]);
 
 	const toggleVisibility = useCallback(() => {
+		bodyScroll()
 		setSidebarVisibility(!sidebarVisibility);
 	}, [sidebarVisibility]);
+
 	const onToggleTheme = () => {
 		setTheme(toggleTheme());
 	};
-	const darkClass = useMemo(() => {
-		return classnames({
-			active: theme === 'dark',
-		});
-	}, [theme]);
-	const lightClass = useMemo(() => {
-		return classnames({
-			active: theme === 'light',
-		});
-	}, [theme]);
+
+	const darkClass = useMemo(() => classnames({
+		active: theme === 'dark',
+	}), [theme]);
+
+	const lightClass = useMemo(() => classnames({
+		active: theme === 'light',
+	}), [theme]);
 
 	const { isAuthed } = useAppSelector(selectAuth);
 

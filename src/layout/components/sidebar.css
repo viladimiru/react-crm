@@ -70,4 +70,7 @@
 	.sidebar--active {
 		translate: 0%;
 	}
+	body.scroll-locked {
+		overflow: hidden;
+	}
 }
