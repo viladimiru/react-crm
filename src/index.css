@@ -4,6 +4,7 @@
 @import url('./pages/register/index.css');
 @import url('./pages/main/index.css');
 @import url('./pages/users/index.css');
+@import url('./pages/feedback/index.css');
 :root {
 	--app-height: 100%;
 }
@@ -121,4 +122,9 @@
 }
 .mb-2 {
 	margin-bottom: .75em;
+}
+.default__card {
+	border-radius: 5px;
+	padding: var(--content-padding);
+	background-color: var(--bg-color);
 }

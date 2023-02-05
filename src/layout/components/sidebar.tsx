@@ -1,7 +1,7 @@
-import { useLocation, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
-import { useEffect, useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import classnames from 'classnames';
 import { useAppSelector } from '../../hooks/redux';
 import { selectAuth } from '../../store/auth/auth.slice';
@@ -17,18 +17,8 @@ const toggleTheme = () => {
 	return next!;
 };
 
-const bodyScroll = () => {
-	const node = document.getElementsByTagName('body')[0];
-	node.classList.toggle('scroll-locked');
-};
-
 function Sidebar() {
 	const [theme, setTheme] = useState('dark');
-	const location = useLocation();
-
-	useEffect(() => {
-		setSidebarVisibility(false);
-	}, [location]);
 	const [sidebarVisibility, setSidebarVisibility] = useState(false);
 
 	const sidebarClasses = useMemo(() => classnames({
@@ -37,7 +27,6 @@ function Sidebar() {
 	}), [sidebarVisibility]);
 
 	const toggleVisibility = useCallback(() => {
-		bodyScroll()
 		setSidebarVisibility(!sidebarVisibility);
 	}, [sidebarVisibility]);
 
@@ -67,6 +56,10 @@ function Sidebar() {
 					link: '/users',
 				},
 				{
+					text: 'Отзывы',
+					link: '/feedback'
+				},
+				{
 					text: 'Котики',
 					link: '/cats',
 				},
@@ -94,7 +87,7 @@ function Sidebar() {
 				/>
 			</div>
 			<div className={sidebarClasses}>
-				<ul>
+				<ul onClick={toggleVisibility}>
 					{navList.map((item) => (
 						<NavLink key={item.link} className='text-link' to={item.link}>
 							<li>{item.text}</li>

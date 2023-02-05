@@ -10,6 +10,7 @@ import Layout from './layout/index';
 import Register from './pages/register';
 import Login from './pages/login';
 import Users from './pages/users';
+import Feedback from './pages/feedback';
 
 
 const router = createBrowserRouter([
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
 			{
 				path: '/users',
 				element: <Users/>
+			},
+			{
+				path: 'feedback',
+				element: <Feedback/>
 			}
 		],
 	},
