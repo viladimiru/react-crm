@@ -9,6 +9,7 @@ import Cats from './pages/cats';
 import Layout from './layout/index';
 import Register from './pages/register';
 import Login from './pages/login';
+import Users from './pages/users';
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
 			{
 				path: '/login',
 				element: <Login/>
+			},
+			{
+				path: '/users',
+				element: <Users/>
 			}
 		],
 	},

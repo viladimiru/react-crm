@@ -63,6 +63,10 @@ function Sidebar() {
 					link: '/',
 				},
 				{
+					text: 'Пользователи',
+					link: '/users',
+				},
+				{
 					text: 'Котики',
 					link: '/cats',
 				},
