@@ -12,7 +12,7 @@ function Feedback() {
 		<div className='feedback'>
 			{
 				data.map((item) => (
-					<div className='default__card'>
+					<div key={item.msg.message_id} className='default__card'>
 						<span>
 							User: {item.msg.from.username}
 						</span>

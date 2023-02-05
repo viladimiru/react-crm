@@ -25,7 +25,7 @@ function Users() {
 		<>
 			<div className='users'>
 				{users && users.map((user) => (
-					<div className='users__card'>
+					<div key={user.userId} className='users__card'>
 						<span>Username: @{user.username}</span>
 						<span>
 							Fullname: {user.firstName} {user.lastName}
