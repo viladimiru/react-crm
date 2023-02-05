@@ -1,8 +1,7 @@
 import { useSearchUsersQuery } from '../../../store/github/github.api';
-import { useState, useEffect, memo, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useDebounce } from '../../../hooks/debounce';
 import List from './list';
-import Header from '../../../layout/components/header';
 
 namespace Main {
 	export function Users({ search }: { search: string }) {
@@ -26,7 +25,7 @@ namespace Main {
 		const debouncedState = useDebounce(search, 500);
 		useEffect(() => {
 			onSearch(debouncedState);
-		}, [debouncedState]);
+		}, [debouncedState, onSearch]);
 		return (
 			<input
 				placeholder='Search'
