@@ -99,8 +99,8 @@ function Logs() {
 		<>
 			<div className='logs' ref={logsRef}>
 				<ul>
-					{logs.map((item) => (
-						<li key={`${item.timestamp}_index`}>
+					{logs.map((item, index) => (
+						<li key={`${item.timestamp}_${index}`}>
 							<small>{item.timestamp}</small>
 							{(item.action === 'subscription' && (
 								<Log.Subscription {...item.data} />
