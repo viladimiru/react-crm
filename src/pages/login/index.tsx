@@ -19,7 +19,7 @@ function Login() {
 	const { setAuth } = useActions();
 
 	const login = (data: any) => {
-		if (data.login === 'viladimiru' && data.password === '123123123') {
+		if (data.login === 'vlad' && data.password === '123123123') {
 			setAuth(true);
 		} else {
 			console.log('invalid');

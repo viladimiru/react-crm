@@ -7,10 +7,11 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import Cats from './pages/cats';
 import Layout from './layout/index';
-import Register from './pages/register';
 import Login from './pages/login';
 import Users from './pages/users';
 import Feedback from './pages/feedback';
+import Mailing from './pages/mailing';
+import Logs from './pages/logs';
 
 
 const router = createBrowserRouter([
@@ -26,10 +27,6 @@ const router = createBrowserRouter([
 				element: <Cats />,
 			},
 			{
-				path: '/register',
-				element: <Register/>
-			},
-			{
 				path: '/login',
 				element: <Login/>
 			},
@@ -40,6 +37,14 @@ const router = createBrowserRouter([
 			{
 				path: 'feedback',
 				element: <Feedback/>
+			},
+			{
+				path: 'mailing',
+				element: <Mailing/>
+			},
+			{
+				path: 'logs',
+				element: <Logs/>
 			}
 		],
 	},

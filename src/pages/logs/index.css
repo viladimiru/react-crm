@@ -1,0 +1,50 @@
+.logs {
+	height: 600px;
+	width: 800px;
+	overflow: auto;
+	font-size: 12px;
+	background-color: var(--bg-color);
+	padding: var(--content-padding);
+	border-radius: 5px;
+	user-select: none;
+	box-sizing: border-box;
+}
+.logs > ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.logs > ul > li {
+	padding: 0.1rem;
+}
+.logs > ul > li > small {
+	margin-right: 10px;
+}
+.logs__charts {
+	display: inline-flex;
+	gap: 20px;
+}
+@media (min-width: 450px) and (max-width: 1150px) {
+	.logs {
+		width: 100%;
+	}
+	.logs__charts {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.logs__chart {
+		justify-self: center;
+	}
+}
+@media (max-width: 449px) {
+	.logs {
+		width: 100%;
+	}
+	.logs__charts {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.logs__chart {
+		justify-self: center;
+	}
+}

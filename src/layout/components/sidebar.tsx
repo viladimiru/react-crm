@@ -21,10 +21,14 @@ function Sidebar() {
 	const [theme, setTheme] = useState('dark');
 	const [sidebarVisibility, setSidebarVisibility] = useState(false);
 
-	const sidebarClasses = useMemo(() => classnames({
-		sidebar: true,
-		'sidebar--active': sidebarVisibility,
-	}), [sidebarVisibility]);
+	const sidebarClasses = useMemo(
+		() =>
+			classnames({
+				sidebar: true,
+				'sidebar--active': sidebarVisibility,
+			}),
+		[sidebarVisibility]
+	);
 
 	const toggleVisibility = useCallback(() => {
 		setSidebarVisibility(!sidebarVisibility);
@@ -34,13 +38,21 @@ function Sidebar() {
 		setTheme(toggleTheme());
 	};
 
-	const darkClass = useMemo(() => classnames({
-		active: theme === 'dark',
-	}), [theme]);
+	const darkClass = useMemo(
+		() =>
+			classnames({
+				active: theme === 'dark',
+			}),
+		[theme]
+	);
 
-	const lightClass = useMemo(() => classnames({
-		active: theme === 'light',
-	}), [theme]);
+	const lightClass = useMemo(
+		() =>
+			classnames({
+				active: theme === 'light',
+			}),
+		[theme]
+	);
 
 	const { isAuthed } = useAppSelector(selectAuth);
 
@@ -57,15 +69,19 @@ function Sidebar() {
 				},
 				{
 					text: 'Отзывы',
-					link: '/feedback'
+					link: '/feedback',
 				},
 				{
 					text: 'Котики',
 					link: '/cats',
 				},
 				{
-					text: 'Регистрация',
-					link: '/register',
+					text: 'Рассылка',
+					link: '/mailing',
+				},
+				{
+					text: 'Логи',
+					link: '/logs',
 				},
 			];
 		}
@@ -84,16 +100,23 @@ function Sidebar() {
 					className='burger-toggler'
 					icon={sidebarVisibility ? solid('xmark') : solid('bars')}
 					size='2x'
+					style={{width: '28px'}}
 				/>
 			</div>
 			<div className={sidebarClasses}>
-				<ul onClick={toggleVisibility}>
-					{navList.map((item) => (
-						<NavLink key={item.link} className='text-link' to={item.link}>
-							<li>{item.text}</li>
-						</NavLink>
-					))}
-				</ul>
+				<div className='menu'>
+					<div className='logo'>
+						<img src='/flamingo.png' alt='logo' />
+						<h3>Flamingo House</h3>
+					</div>
+					<ul onClick={toggleVisibility}>
+						{navList.map((item) => (
+							<NavLink key={item.link} className='text-link' to={item.link}>
+								<li>{item.text}</li>
+							</NavLink>
+						))}
+					</ul>
+				</div>
 				<div className='theme-list'>
 					<FontAwesomeIcon
 						className={darkClass}
