@@ -8,8 +8,8 @@ import dayjs from 'dayjs';
 import LineChart from './components/LineChart';
 import { useVirtual } from 'react-virtual';
 
-// const WS_URL = 'wss://www.flamingo-house.top/websocket'
-const WS_URL = 'ws://localhost:3030/';
+const WS_URL = 'wss://www.flamingo-house.top/websocket'
+// const WS_URL = 'ws://localhost:3030/';
 const maxLogList = 150;
 
 namespace Log {
