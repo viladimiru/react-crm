@@ -6,8 +6,8 @@ import Select from '../../components/Select';
 
 // const WS_URL = 'wss://www.flamingo-house.top/websocket'
 const WS_URL = 'ws://localhost:3030/';
-const maxLogList = 150;
-const maxLogSize = 60;
+const maxLogList = 2000;
+const maxPairLogs = 1800;
 const selectOptions = [
 	{
 		value: 'list',
@@ -65,8 +65,8 @@ function Logs() {
 					payload.push(state);
 				}
 				state.data.push([item.data.markPrice, item.uid]);
-				if (state.data.length > maxLogSize) {
-					state.data.splice(0, state.data.length - maxLogSize);
+				if (state.data.length > maxPairLogs) {
+					state.data.splice(0, state.data.length - maxPairLogs);
 				}
 			});
 			return payload;
