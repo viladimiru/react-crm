@@ -2,6 +2,7 @@
 	--text-color: #fffffb;
 	--bg-color: #282828;
 	--bg-hover: #414141;
+	--bg-active: #616161;
 	--content-color: var(--bg-hover);
 	--bg-color-secondary: #AEB4A9;
 	--bg-color-opacity: #fffffb19;

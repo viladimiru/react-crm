@@ -2,7 +2,7 @@ import useWebSocket from 'react-use-websocket';
 import { useState, memo, lazy, Suspense } from 'react';
 import dayjs from 'dayjs';
 import { ILog, Pair } from './interfaces';
-import Select from 'react-select';
+import Select from '../../components/Select';
 
 // const WS_URL = 'wss://www.flamingo-house.top/websocket'
 const WS_URL = 'ws://localhost:3030/';

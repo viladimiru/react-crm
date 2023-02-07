@@ -29,19 +29,11 @@
 	gap: 20px;
 	box-sizing: border-box;
 }
-@media (min-width: 450px) and (max-width: 1150px) {
-	.logs {
-		width: 100%;
-	}
-	.logs__charts {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-	}
-	.logs__chart {
-		justify-self: center;
-	}
+.r-select {
+	width: 300px;
+	margin-bottom: 10px;
 }
-@media (max-width: 449px) {
+@media screen and (max-width: 1150px) {
 	.logs {
 		width: 100%;
 	}
@@ -51,5 +43,10 @@
 	}
 	.logs__chart {
 		justify-self: center;
+	}
+}
+@media screen and (max-width: 449px) {
+	.r-select {
+		width: 100%;
 	}
 }
