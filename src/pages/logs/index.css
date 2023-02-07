@@ -1,3 +1,7 @@
+.logs-wrap {
+	display: grid;
+}
+
 .logs {
 	height: 600px;
 	width: 800px;
@@ -23,6 +27,7 @@
 .logs__charts {
 	display: inline-flex;
 	gap: 20px;
+	box-sizing: border-box;
 }
 @media (min-width: 450px) and (max-width: 1150px) {
 	.logs {
