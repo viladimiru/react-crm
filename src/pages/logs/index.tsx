@@ -1,5 +1,5 @@
 import useWebSocket from 'react-use-websocket';
-import { useState, memo, lazy, Suspense } from 'react';
+import { useState, memo, lazy, Suspense, useTransition } from 'react';
 import dayjs from 'dayjs';
 import { ILog, Pair } from './interfaces';
 import Select from '../../components/Select';
@@ -26,6 +26,7 @@ function Logs() {
 	const [viewType, setViewType] = useState(selectOptions[0]);
 	const [logs, setLogs] = useState<ILog[]>([]);
 	const [pairLogs, setPairLogs] = useState<Pair[]>([]);
+	const [isPending, setTransition] = useTransition()
 
 	useWebSocket(WS_URL, {
 		onMessage: async (e: MessageEvent) => {
@@ -41,7 +42,9 @@ function Logs() {
 				});
 				const pairs = data.filter((item) => item.action === 'observe');
 				if (pairs.length) {
-					updatePairLogs(pairs);
+					setTransition(() => {
+						updatePairLogs(pairs)
+					})
 				}
 				if (logs.length > maxLogList) {
 					const sliceSize = maxLogList - data.length;
