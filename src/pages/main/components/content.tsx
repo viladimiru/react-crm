@@ -12,10 +12,10 @@ namespace Main {
 			refetchOnReconnect: false,
 		});
 		if (isLoading) {
-			return <div className='loader'></div>;
+			return <div data-testid='loader' className='loader'></div>;
 		}
 		if (isError) {
-			return <span>error</span>;
+			return <span data-testid='error'>error</span>;
 		}
 		return <List data={data} />;
 	}

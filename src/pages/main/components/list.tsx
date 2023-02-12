@@ -5,7 +5,7 @@ function List({ data }: any) {
 		return <span>List is empty</span>
 	}
 	return (
-		<ul className='users-list'>
+		<ul data-testid='result' className='users-list'>
 			{data.items.map((item: any) => (
 				<ListItem item={item} key={item.login} />
 			)) || <span>list is empty</span>}

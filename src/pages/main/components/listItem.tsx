@@ -2,13 +2,24 @@ import { memo } from 'react';
 
 function ListItem({ item }: any) {
 	return (
-		<li className='users-list__item'>
-			<img width={'140px'} height={'150px'} src={item.avatar_url} alt={item.login} />
+		<li data-testid='listItem' className='users-list__item'>
+			<img
+				data-testid='listItemImg'
+				width={'140px'}
+				height={'150px'}
+				src={item.avatar_url}
+				alt={item.login}
+			/>
 			<div className='users-list__desc'>
-				<span>{item.login}</span>
-				<small>Role: {item.type}</small>
+				<span data-testid='listItemLogin'>{item.login}</span>
+				<small data-testid='listItemRole'>Role: {item.type}</small>
 				<small>
-					<a className='text-link' href={item.html_url} target='_blank'>
+					<a
+						data-testid='listItemLink'
+						className='text-link'
+						href={item.html_url}
+						target='_blank'
+					>
 						Profile
 					</a>
 				</small>
