@@ -20,6 +20,7 @@
 }
 .logs > ul > li {
 	padding: 0.1rem;
+	white-space: nowrap;
 }
 .logs > ul > li > small {
 	margin-right: 10px;
