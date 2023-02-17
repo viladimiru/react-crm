@@ -43,10 +43,27 @@
 	}
 	.logs__chart {
 		justify-self: center;
+		display: flex;
+		flex-direction: column;
 	}
 }
 @media screen and (max-width: 449px) {
 	.r-select {
 		width: 100%;
+	}
+}
+@media screen and (max-width: 1550px) {
+	.logs__charts {
+		display: grid;
+	}
+}
+@media (min-width: 1241px) and (max-width: 1550px) {
+	.logs__charts {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media (min-width: 1151px) and (max-width: 1240px) {
+	.logs__charts {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }

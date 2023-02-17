@@ -12,6 +12,7 @@ import Users from './pages/users';
 import Feedback from './pages/feedback';
 import Mailing from './pages/mailing';
 import Logs from './pages/logs';
+import Modal from 'react-modal'
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,8 @@ const router = createBrowserRouter([
 		],
 	},
 ]);
+
+Modal.setAppElement(('#modal'))
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement

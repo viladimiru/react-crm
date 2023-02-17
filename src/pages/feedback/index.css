@@ -2,6 +2,7 @@
 	display: grid;
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 	gap: var(--content-padding);
+	max-width: 1000px;
 }
 .default__card > span {
 	display: block;
@@ -10,19 +11,9 @@
 	display: block;
 	margin: 5px 0 0;
 }
-
-@media (min-width: 1600px) {
-	.feedback {
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-	}
-}
-@media (min-width: 1400px) and (max-width: 1599px) {
-	.feedback {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-	}
-}
-@media (min-width: 1200px) and (max-width: 1399px) {
-	.feedback {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
+.default__card-controls {
+	margin-top: 5px;
+	display: flex;
+	justify-content: end;
+	gap: 5px;
 }

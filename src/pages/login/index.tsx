@@ -39,6 +39,7 @@ function Login() {
 					<label>Login</label>
 					<input
 						{...register('login', { required: true })}
+						data-testid='login'
 						className='app-input'
 						type='text'
 					/>
@@ -47,6 +48,7 @@ function Login() {
 					<label>Password</label>
 					<input
 						{...register('password', { required: true })}
+						data-testid='password'
 						className='app-input'
 						type='text'
 					/>
@@ -55,6 +57,7 @@ function Login() {
 					onClick={handleSubmit(login)}
 					disabled={!isValid}
 					className='button'
+					data-testid='submit'
 				>
 					Sign in
 				</button>

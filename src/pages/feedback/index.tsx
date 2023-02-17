@@ -3,31 +3,27 @@ import { useListQuery } from '../../store/feedback/feedback.api';
 function Feedback() {
 	const { data, isLoading } = useListQuery();
 	if (isLoading) {
-		return <div className="loading"></div>;
+		return <div className='loading'></div>;
 	}
 	if (!data?.length) {
-		return <span>List is empty</span>
+		return <span>List is empty</span>;
 	}
 	return (
 		<div className='feedback'>
-			{
-				data.map((item) => (
+			{data.map((item) => (
+				<div className='default__card-wrap'>
 					<div key={item.msg.message_id} className='default__card'>
-						<span>
-							User: {item.msg.from.username}
-						</span>
-						<span>
-							Firstname: {item.msg.from.first_name}
-						</span>
-						<span>
-							Language: {item.msg.from.language_code}
-						</span>
-						<span>
-							Message: {item.msg.text}
-						</span>
+						<span>User: {item.msg.from.username}</span>
+						<span>Firstname: {item.msg.from.first_name}</span>
+						<span>Language: {item.msg.from.language_code}</span>
+						<span>Message: {item.msg.text}</span>
 					</div>
-				))
-			}
+					<div className='default__card-controls'>
+						<button className='button'>Ответить</button>
+						<button className='button'>Удалить</button>
+					</div>
+				</div>
+			))}
 		</div>
 	);
 }
