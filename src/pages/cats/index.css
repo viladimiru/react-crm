@@ -1,121 +1,123 @@
 .cats {
-	display: grid;
-	gap: 5px;
-	transition: 250ms ease-in-out;
-	grid-template-columns: repeat(1, minmax(0, 1fr));
+  display: grid;
+  gap: 5px;
+  transition: 250ms ease-in-out;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 @media (min-width: 1550px) {
-	.cats {
-		grid-template-columns: repeat(5, minmax(0, 1fr));
-	}
+  .cats {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 @media (min-width: 1250px) and (max-width: 1549px) {
-	.cats {
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-	}
+  .cats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 @media (min-width: 1000px) and (max-width: 1249px) {
-	.cats {
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-	}
+  .cats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 @media (min-width: 550px) and (max-width: 999px) {
-	.cats {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
+  .cats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 .cats--disabled {
-	pointer-events: none;
-	opacity: 0.7;
+  pointer-events: none;
+  opacity: 0.7;
 }
 .cats__wrapper {
-	height: 250px;
-	width: 100%;
-	box-sizing: border-box;
-	padding: 10px;
-	background-color: var(--bg-color);
-	border-radius: 5px;
-	box-shadow: 0px var(--shadow-color);
-	transition: 250ms ease-in-out;
-	position: relative;
+  height: 250px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  box-shadow: 0px var(--shadow-color);
+  transition: 250ms ease-in-out;
+  position: relative;
 }
 .cats__actions {
-	position: absolute;
-	right: 0;
-	top: 0;
-	display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
 }
 .cats__actions > button {
-	border-style: none;
-	cursor: pointer;
+  border-style: none;
+  cursor: pointer;
 }
-.cats__like:not(.cats__like--liked), .cats__delete {
-	color: var(--button-primary-color);
-	opacity: .7;
-	transition: 250ms ease-in-out;
+.cats__like:not(.cats__like--liked),
+.cats__delete {
+  color: var(--button-primary-color);
+  opacity: 0.7;
+  transition: 250ms ease-in-out;
 }
-.cats__like:hover, .cats__delete:hover {
-	color: var(--button-secondary-color);
-	background-color: var(--button-primary-blur);
-	opacity: 1;
+.cats__like:hover,
+.cats__delete:hover {
+  color: var(--button-secondary-color);
+  background-color: var(--button-primary-blur);
+  opacity: 1;
 }
 .cats__like {
-	transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
 }
 .cats__like--liked {
-	background-color: var(--button-primary-blur);
-	color: var(--button-secondary-color);
-	box-shadow: 0 0 5px 0 var(--shadow-color);
+  background-color: var(--button-primary-blur);
+  color: var(--button-secondary-color);
+  box-shadow: 0 0 5px 0 var(--shadow-color);
 }
 .cats__delete {
-	position: relative;
+  position: relative;
 }
 .cats__card:hover > .cats__wrapper {
-	box-shadow: var(--box-shadow);
-	transform: scale(1.02);
+  box-shadow: var(--box-shadow);
+  transform: scale(1.02);
 }
 .cats__wrapper > .cats__image {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	height: 100%;
-	width: 100%;
-	border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
 }
 .cats__wrapper > .cats__image > img {
-	min-width: 100%;
-	min-height: 100%;
-	object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
 }
 .cats__controls {
-	display: flex;
-	width: 100%;
-	margin-top: 20px;
-	gap: 10px;
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  gap: 10px;
 }
 .cats__controls > button {
-	flex: 1 0 auto;
-	border-style: none;
-	background-color: var(--bg-color);
-	color: var(--button-primary-color);
-	opacity: 0.7;
-	transition: 250ms;
+  flex: 1 0 auto;
+  border-style: none;
+  background-color: var(--bg-color);
+  color: var(--button-primary-color);
+  opacity: 0.7;
+  transition: 250ms;
 }
 .cats__controls > button:disabled {
-	opacity: .5;
+  opacity: 0.5;
 }
 .cats__controls > button:not(:disabled) {
-	cursor: pointer;
+  cursor: pointer;
 }
 .cats__controls > button:not(:disabled):hover {
-	opacity: 1;
+  opacity: 1;
 }
 .cats__controls > button:first-child {
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .cats__controls > button:last-child {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

@@ -1,70 +1,70 @@
 .logs-wrap {
-	display: grid;
+  display: grid;
 }
 
 .logs {
-	height: 600px;
-	width: 800px;
-	overflow: auto;
-	font-size: 12px;
-	background-color: var(--bg-color);
-	padding: var(--content-padding);
-	border-radius: 5px;
-	user-select: none;
-	box-sizing: border-box;
+  height: 600px;
+  width: 800px;
+  overflow: auto;
+  font-size: 12px;
+  background-color: var(--bg-color);
+  padding: var(--content-padding);
+  border-radius: 5px;
+  user-select: none;
+  box-sizing: border-box;
 }
 .logs > ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 .logs > ul > li {
-	padding: 0.1rem;
-	white-space: nowrap;
+  padding: 0.1rem;
+  white-space: nowrap;
 }
 .logs > ul > li > small {
-	margin-right: 10px;
+  margin-right: 10px;
 }
 .logs__charts {
-	display: inline-flex;
-	gap: 20px;
-	box-sizing: border-box;
+  display: inline-flex;
+  gap: 20px;
+  box-sizing: border-box;
 }
 .r-select {
-	width: 300px;
-	margin-bottom: 10px;
+  width: 300px;
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 1150px) {
-	.logs {
-		width: 100%;
-	}
-	.logs__charts {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-	}
-	.logs__chart {
-		justify-self: center;
-		display: flex;
-		flex-direction: column;
-	}
+  .logs {
+    width: 100%;
+  }
+  .logs__charts {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .logs__chart {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+  }
 }
 @media screen and (max-width: 449px) {
-	.r-select {
-		width: 100%;
-	}
+  .r-select {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 1550px) {
-	.logs__charts {
-		display: grid;
-	}
+  .logs__charts {
+    display: grid;
+  }
 }
 @media (min-width: 1241px) and (max-width: 1550px) {
-	.logs__charts {
-		grid-template-columns: repeat(3, 1fr);
-	}
+  .logs__charts {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (min-width: 1151px) and (max-width: 1240px) {
-	.logs__charts {
-		grid-template-columns: repeat(2, 1fr);
-	}
+  .logs__charts {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

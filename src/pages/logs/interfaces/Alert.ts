@@ -1,4 +1,4 @@
 export interface Alert {
-	message: string,
-	chatId: Number
+  message: string;
+  chatId: Number;
 }

@@ -6,12 +6,4 @@ import { Observe } from './Observe';
 import ILog from './Log';
 import { Pair } from './Pair';
 
-export type {
-	Alert,
-	Subscription,
-	Error,
-	EventWrapper,
-	Observe,
-	ILog, 
-	Pair
-}
+export type { Alert, Subscription, Error, EventWrapper, Observe, ILog, Pair };

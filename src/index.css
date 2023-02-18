@@ -7,125 +7,125 @@
 @import url('./pages/mailing/index.css');
 @import url('./pages/logs/index.css');
 :root {
-	--app-height: 100%;
+  --app-height: 100%;
 }
 
 .l-grid {
-	width: 100%;
-	display: grid;
-	min-height: var(--app-height);
-	grid-template-columns: 250px 1fr;
-	grid-template-rows: 1fr;
-	font-size: 16px;
+  width: 100%;
+  display: grid;
+  min-height: var(--app-height);
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 1fr;
+  font-size: 16px;
 }
 .l-grid__content {
-	background-color: var(--content-color);
-	padding: var(--content-padding);
+  background-color: var(--content-color);
+  padding: var(--content-padding);
 }
 .l-grid__sidebar {
-	background-color: var(--bg-color);
-	top: 0;
-	left: 0;
-	position: sticky;
-	height: 100vh;
+  background-color: var(--bg-color);
+  top: 0;
+  left: 0;
+  position: sticky;
+  height: 100vh;
 }
 @media (max-width: 800px) {
-	.l-grid {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto 1fr;
-	}
-	.l-grid__sidebar {
-		position: sticky;
-		top: 0;
-		z-index: 1;
-		height: 40px;
-	}
+  .l-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .l-grid__sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 40px;
+  }
 }
 .text-link {
-	color: var(--button-primary-color);
+  color: var(--button-primary-color);
 }
 
 .loader {
-	display: inline-block;
-	border-right: 2px solid var(--bg-color);
-	border-radius: 50%;
-	width: 50px;
-	height: 50px;
-	animation: loader 500ms linear infinite;
+  display: inline-block;
+  border-right: 2px solid var(--bg-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: loader 500ms linear infinite;
 }
 .loader--white {
-	border-right-color: var(--text-color);
+  border-right-color: var(--text-color);
 }
 .loader--inherit {
-	border-right-color: inherit;
+  border-right-color: inherit;
 }
 .loader--xs {
-	width: 16px;
-	height: 16px;
+  width: 16px;
+  height: 16px;
 }
 @keyframes loader {
-	from {
-		rotate: 0deg;
-	}
-	to {
-		rotate: 360deg;
-	}
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
 }
 .d-inline-block {
-	display: inline-block;
+  display: inline-block;
 }
 .form-field {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .form-field__checkbox {
-	flex-direction: row;
-	gap: 10px;
+  flex-direction: row;
+  gap: 10px;
 }
 .form small.error {
-	font-size: 12px;
-	color: var(--button-secondary-color);
+  font-size: 12px;
+  color: var(--button-secondary-color);
 }
 .app-input {
-	padding: 5px 10px;
-	border-style: none;
-	border: 1px solid var(--bg-color-secondary);
-	border-radius: 5px;
-	outline: none;
-	background-color: var(--bg-color-opacity);
-	color: var(--text-color);
+  padding: 5px 10px;
+  border-style: none;
+  border: 1px solid var(--bg-color-secondary);
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--bg-color-opacity);
+  color: var(--text-color);
 }
 .form {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .button {
-	opacity: 0.8;
-	background-color: var(--button-primary-bg);
-	color: var(--button-primary-color);
-	border-style: none;
-	border-radius: 5px;
-	padding: 10px;
-	transition: 500ms ease-in-out;
+  opacity: 0.8;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-color);
+  border-style: none;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 500ms ease-in-out;
 }
 .button:disabled {
-	opacity: .7;
+  opacity: 0.7;
 }
 .button:not(:disabled) {
-	cursor: pointer;
+  cursor: pointer;
 }
 .button:not(:disabled):hover {
-	opacity: 1;
+  opacity: 1;
 }
 .mb-1 {
-	margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 .mb-2 {
-	margin-bottom: .75em;
+  margin-bottom: 0.75em;
 }
 .default__card {
-	border-radius: 5px;
-	padding: var(--content-padding);
-	background-color: var(--bg-color);
+  border-radius: 5px;
+  padding: var(--content-padding);
+  background-color: var(--bg-color);
 }
