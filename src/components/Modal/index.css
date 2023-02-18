@@ -1,0 +1,45 @@
+.modal__close > svg {
+	position: absolute;
+	right: 20px;
+}
+.modal__close {
+	cursor: pointer;
+	opacity: 0.8;
+}
+.modal__close:hover {
+	opacity: 1;
+}
+.ReactModal__Overlay {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.ReactModal__Content {
+	inset: 0;
+	padding: 25px;
+	box-sizing: border-box;
+	background-color: var(--bg-color);
+	border-radius: 3px;
+	position: relative;
+}
+.ReactModal__Overlay {
+	opacity: 0;
+	transition: opacity 100ms ease-in-out;
+}
+.ReactModal__Overlay--after-open{
+	opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+	opacity: 0;
+}
+.ReactModal__Content {
+	transform: translateY(-15px);
+	transition: transform 100ms ease-in-out;
+}
+.ReactModal__Content--after-open{
+	transform: translateY(0px);
+}
+.ReactModal__Content--before-close{
+	transform: translateY(-15px);
+}

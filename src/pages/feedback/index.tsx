@@ -1,4 +1,7 @@
 import { useListQuery } from '../../store/feedback/feedback.api';
+import { Modal } from '../../components/Modal';
+import { useState } from 'react';
+import { FeedbackItem } from './FeedbackItem';
 
 function Feedback() {
 	const { data, isLoading } = useListQuery();
@@ -10,20 +13,7 @@ function Feedback() {
 	}
 	return (
 		<div className='feedback'>
-			{data.map((item) => (
-				<div className='default__card-wrap'>
-					<div key={item.msg.message_id} className='default__card'>
-						<span>User: {item.msg.from.username}</span>
-						<span>Firstname: {item.msg.from.first_name}</span>
-						<span>Language: {item.msg.from.language_code}</span>
-						<span>Message: {item.msg.text}</span>
-					</div>
-					<div className='default__card-controls'>
-						<button className='button'>Ответить</button>
-						<button className='button'>Удалить</button>
-					</div>
-				</div>
-			))}
+			{data.map((item) => <FeedbackItem key={item.msg.message_id} {...item.msg} />)}
 		</div>
 	);
 }

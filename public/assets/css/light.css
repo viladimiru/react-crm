@@ -8,10 +8,12 @@
 	--bg-color-opacity: #fffffb19;
 	--shadow-color: #818587;
 	--button-primary-color: #959f05;
+	--button-primary-bg: #e1dede;
 	--button-primary-blur: #c2c68c;
 	--button-secondary-color: #d62828;
 	--content-padding: 15px;
 	--box-shadow: 0px 0px 10px 0px var(--shadow-color);
+	--overlay-color: #4f4f4f8c;
 	font-family: 'Courier New', Courier, monospace;
 }
 :root{

@@ -102,12 +102,12 @@
 }
 .button {
 	opacity: 0.8;
-	background-color: var(--bg-color);
+	background-color: var(--button-primary-bg);
 	color: var(--button-primary-color);
 	border-style: none;
 	border-radius: 5px;
 	padding: 10px;
-	transition: 250ms ease-in-out;
+	transition: 500ms ease-in-out;
 }
 .button:disabled {
 	opacity: .7;
