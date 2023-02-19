@@ -4,6 +4,9 @@ export const feedbackApi = createApi({
   reducerPath: 'feedback/api',
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL + 'api/feedback/',
+    headers: {
+      Authentication: 'Bearer ' + process.env.REACT_APP_API_TOKEN,
+    },
   }),
   endpoints: (build) => ({
     list: build.query<FeedbackResult[], void>({

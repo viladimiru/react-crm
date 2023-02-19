@@ -6,9 +6,17 @@ function Mailing() {
   const [loading, setLoading] = useState(false);
   const onSend = async () => {
     setLoading(true);
-    await axios.post(process.env.REACT_APP_BASE_URL + 'api/users/mailing', {
-      message,
-    });
+    await axios.post(
+      process.env.REACT_APP_BASE_URL + 'api/users/mailing',
+      {
+        message,
+      },
+      {
+        headers: {
+          Authentication: 'Bearer ' + process.env.REACT_APP_API_TOKEN,
+        },
+      }
+    );
     setLoading(false);
   };
 

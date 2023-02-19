@@ -25,9 +25,9 @@ function Logs() {
   const [viewType, setViewType] = useState(selectOptions[0]);
   const [logs, setLogs] = useState<ILog[]>([]);
   const [pairLogs, setPairLogs] = useState<Pair[]>([]);
-  const [isPending, setTransition] = useTransition();
-
+  const [_, setTransition] = useTransition();
   useWebSocket(WS_URL, {
+    protocols: process.env.REACT_APP_API_TOKEN,
     onMessage: async (e: MessageEvent) => {
       setLogs((prev) => {
         let data = JSON.parse(e.data) as ILog[];

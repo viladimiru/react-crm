@@ -17,6 +17,11 @@ export function FeedbackItem(props: FeedbackMessage) {
           options: {
             reply_to_message_id: props.message_id,
           },
+        },
+        {
+          headers: {
+            Authentication: 'Bearer ' + process.env.REACT_APP_API_TOKEN
+          }
         }
       )
       .then(() => {
