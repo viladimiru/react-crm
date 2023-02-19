@@ -1,33 +1,33 @@
 .users {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 10px;
+	display: grid;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	gap: 10px;
 }
 .users__card {
-  border-radius: 5px;
-  padding: var(--content-padding);
-  background-color: var(--bg-color);
+	border-radius: 5px;
+	padding: var(--content-padding);
+	background-color: var(--bg-color);
 }
 .users__card > span {
-  display: block;
+	display: block;
 }
 @media (min-width: 1600px) {
-  .users {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
+	.users {
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+	}
 }
 @media (min-width: 1500px) and (max-width: 1599px) {
-  .users {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
+	.users {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
 }
 @media (min-width: 1230px) and (max-width: 1499px) {
-  .users {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+	.users {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
 }
 @media (min-width: 800px) and (max-width: 1229px) {
-  .users {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+	.users {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
 }

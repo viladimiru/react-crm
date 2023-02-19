@@ -1,12 +1,12 @@
 .mailing-form {
-  width: 600px;
+	width: 600px;
 }
 .mailing-form > textarea {
-  resize: vertical;
+	resize: vertical;
 }
 
 @media (max-width: 900px) {
-  .mailing-form {
-    width: 100%;
-  }
+	.mailing-form {
+		width: 100%;
+	}
 }

@@ -8,93 +8,93 @@ const WS_URL = process.env.REACT_APP_BASE_URL_WS as string;
 const maxLogList = 2000;
 const maxPairLogs = 1800;
 const selectOptions = [
-  {
-    value: 'list',
-    label: 'List',
-  },
-  {
-    value: 'chart',
-    label: 'Chart',
-  },
+	{
+		value: 'list',
+		label: 'List',
+	},
+	{
+		value: 'chart',
+		label: 'Chart',
+	},
 ];
 
 const List = lazy(() => import('./components/List'));
 const Charts = lazy(() => import('./components/Charts'));
 
 function Logs() {
-  const [viewType, setViewType] = useState(selectOptions[0]);
-  const [logs, setLogs] = useState<ILog[]>([]);
-  const [pairLogs, setPairLogs] = useState<Pair[]>([]);
-  const [_, setTransition] = useTransition();
-  useWebSocket(WS_URL, {
-    protocols: process.env.REACT_APP_API_TOKEN,
-    onMessage: async (e: MessageEvent) => {
-      setLogs((prev) => {
-        let data = JSON.parse(e.data) as ILog[];
-        if (!Array.isArray(data)) {
-          data = [data];
-        }
-        data.forEach((item: ILog) => {
-          item.timestamp = dayjs(item.timestamp).format(
-            'YYYY-MM-DD HH:mm:ss:SSS'
-          );
-        });
-        const pairs = data.filter((item) => item.action === 'observe');
-        if (pairs.length) {
-          setTransition(() => {
-            updatePairLogs(pairs);
-          });
-        }
-        if (logs.length > maxLogList) {
-          const sliceSize = maxLogList - data.length;
-          return [...data, ...prev.slice(0, sliceSize)];
-        }
-        return [...data, ...prev];
-      });
-    },
-  });
+	const [viewType, setViewType] = useState(selectOptions[0]);
+	const [logs, setLogs] = useState<ILog[]>([]);
+	const [pairLogs, setPairLogs] = useState<Pair[]>([]);
+	const [_, setTransition] = useTransition();
+	useWebSocket(WS_URL, {
+		protocols: process.env.REACT_APP_API_TOKEN,
+		onMessage: async (e: MessageEvent) => {
+			setLogs((prev) => {
+				let data = JSON.parse(e.data) as ILog[];
+				if (!Array.isArray(data)) {
+					data = [data];
+				}
+				data.forEach((item: ILog) => {
+					item.timestamp = dayjs(item.timestamp).format(
+						'YYYY-MM-DD HH:mm:ss:SSS'
+					);
+				});
+				const pairs = data.filter((item) => item.action === 'observe');
+				if (pairs.length) {
+					setTransition(() => {
+						updatePairLogs(pairs);
+					});
+				}
+				if (logs.length > maxLogList) {
+					const sliceSize = maxLogList - data.length;
+					return [...data, ...prev.slice(0, sliceSize)];
+				}
+				return [...data, ...prev];
+			});
+		},
+	});
 
-  const updatePairLogs = (pairs: ILog[]) => {
-    setPairLogs((prevPairs) => {
-      let payload = JSON.parse(JSON.stringify(prevPairs));
-      pairs.forEach((item) => {
-        let state = payload.find((p: any) => p.symbol === item.data.symbol);
-        if (!state) {
-          state = {
-            symbol: item.data.symbol,
-            data: [],
-          };
-          payload.push(state);
-        }
-        state.data.push([item.data.markPrice, item.uid]);
-        if (state.data.length > maxPairLogs) {
-          state.data.splice(0, state.data.length - maxPairLogs);
-        }
-      });
-      return payload;
-    });
-  };
+	const updatePairLogs = (pairs: ILog[]) => {
+		setPairLogs((prevPairs) => {
+			let payload = JSON.parse(JSON.stringify(prevPairs));
+			pairs.forEach((item) => {
+				let state = payload.find((p: any) => p.symbol === item.data.symbol);
+				if (!state) {
+					state = {
+						symbol: item.data.symbol,
+						data: [],
+					};
+					payload.push(state);
+				}
+				state.data.push([item.data.markPrice, item.uid]);
+				if (state.data.length > maxPairLogs) {
+					state.data.splice(0, state.data.length - maxPairLogs);
+				}
+			});
+			return payload;
+		});
+	};
 
-  return (
-    <>
-      <div className="logs-wrap">
-        <Select
-          className="r-select"
-          classNamePrefix="r-select"
-          value={viewType}
-          options={selectOptions as []}
-          onChange={(item) => setViewType(item as any)}
-        />
-        <Suspense fallback={<span>loading</span>}>
-          {viewType.value === 'list' ? (
-            <List logs={logs} />
-          ) : (
-            <Charts pairs={pairLogs} />
-          )}
-        </Suspense>
-      </div>
-    </>
-  );
+	return (
+		<>
+			<div className="logs-wrap">
+				<Select
+					className="r-select"
+					classNamePrefix="r-select"
+					value={viewType}
+					options={selectOptions as []}
+					onChange={(item) => setViewType(item as any)}
+				/>
+				<Suspense fallback={<span>loading</span>}>
+					{viewType.value === 'list' ? (
+						<List logs={logs} />
+					) : (
+						<Charts pairs={pairLogs} />
+					)}
+				</Suspense>
+			</div>
+		</>
+	);
 }
 
 export default memo(Logs);

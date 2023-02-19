@@ -1,4 +1,4 @@
 export interface Subscription {
-  pair: string;
-  isExists: boolean;
+	pair: string;
+	isExists: boolean;
 }

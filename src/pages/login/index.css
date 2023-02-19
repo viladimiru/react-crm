@@ -1,17 +1,17 @@
 .login-page {
-  width: 100%;
-  height: calc(var(--app-height) - (var(--content-padding) * 5));
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 100%;
+	height: calc(var(--app-height) - (var(--content-padding) * 5));
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .login-form {
-  width: 400px;
+	width: 400px;
 }
 
 @media (max-width: 600px) {
-  .login-form {
-    width: 100%;
-  }
+	.login-form {
+		width: 100%;
+	}
 }

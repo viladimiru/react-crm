@@ -4,11 +4,11 @@ import { authActions } from '../store/auth/auth.slice';
 import { catsActions } from '../store/cats/cats.slice';
 
 const actions = {
-  ...catsActions,
-  ...authActions,
+	...catsActions,
+	...authActions,
 };
 
 export const useActions = () => {
-  const dispatch = useDispatch();
-  return bindActionCreators(actions, dispatch);
+	const dispatch = useDispatch();
+	return bindActionCreators(actions, dispatch);
 };

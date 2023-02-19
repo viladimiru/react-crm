@@ -4,17 +4,17 @@ import { Provider } from 'react-redux';
 import { store } from '../../store/index';
 
 describe('render main page', () => {
-  it('Main renders', () => {
-    render(
-      <Provider store={store}>
-        <Main />
-      </Provider>
-    );
+	it('Main renders', () => {
+		render(
+			<Provider store={store}>
+				<Main />
+			</Provider>
+		);
 
-    const textbox = screen.getByRole('textbox');
+		const textbox = screen.getByRole('textbox');
 
-    expect(screen.getByText('Поиск | Найдется всЁ')).toBeInTheDocument();
-    expect(textbox).toBeInTheDocument();
-    expect(textbox).toHaveValue('vlad');
-  });
+		expect(screen.getByText('Поиск | Найдется всЁ')).toBeInTheDocument();
+		expect(textbox).toBeInTheDocument();
+		expect(textbox).toHaveValue('vlad');
+	});
 });
