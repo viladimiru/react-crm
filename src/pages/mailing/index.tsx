@@ -6,7 +6,7 @@ function Mailing() {
   const [loading, setLoading] = useState(false);
   const onSend = async () => {
     setLoading(true);
-    await axios.post('https://www.flamingo-house.top/api/users/mailing', {
+    await axios.post(process.env.REACT_APP_BASE_URL + 'api/users/mailing', {
       message,
     });
     setLoading(false);

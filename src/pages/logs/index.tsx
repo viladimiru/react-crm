@@ -3,8 +3,7 @@ import { useState, memo, lazy, Suspense, useTransition } from 'react';
 import dayjs from 'dayjs';
 import { ILog, Pair } from './interfaces';
 import Select from '../../components/Select';
-
-const WS_URL = 'wss://www.flamingo-house.top/websocket';
+const WS_URL = process.env.REACT_APP_BASE_URL_WS as string;
 // const WS_URL = 'ws://localhost:3030/';
 const maxLogList = 2000;
 const maxPairLogs = 1800;

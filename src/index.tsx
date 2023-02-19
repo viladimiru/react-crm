@@ -50,9 +50,6 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  {
-    basename: '/lk',
-  }
 );
 
 Modal.setAppElement('#modal');

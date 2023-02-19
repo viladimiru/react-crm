@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const feedbackApi = createApi({
   reducerPath: 'feedback/api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://www.flamingo-house.top/api/feedback/',
+    baseUrl: process.env.REACT_APP_BASE_URL + 'api/feedback/',
   }),
   endpoints: (build) => ({
     list: build.query<FeedbackResult[], void>({

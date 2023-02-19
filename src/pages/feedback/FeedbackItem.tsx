@@ -11,7 +11,7 @@ export function FeedbackItem(props: FeedbackMessage) {
     setLoading(true);
     axios
       .post(
-        'https://www.flamingo-house.top/api/users/mailing/to/' + props.chat.id,
+        process.env.REACT_APP_BASE_URL + 'api/users/mailing/to/' + props.chat.id,
         {
           message,
           options: {

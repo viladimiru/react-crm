@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const usersApi = createApi({
   reducerPath: 'users/api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://www.flamingo-house.top/api/users/',
+    baseUrl: process.env.REACT_APP_BASE_URL + 'api/users/',
   }),
   endpoints: (build) => ({
     list: build.query<any[], void>({
