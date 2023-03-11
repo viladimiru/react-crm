@@ -60,20 +60,12 @@ function Sidebar() {
 		if (isAuthed) {
 			return [
 				{
-					text: 'Главная',
-					link: '/',
-				},
-				{
 					text: 'Пользователи',
-					link: '/users',
+					link: '/',
 				},
 				{
 					text: 'Отзывы',
 					link: '/feedback',
-				},
-				{
-					text: 'Котики',
-					link: '/cats',
 				},
 				{
 					text: 'Рассылка',

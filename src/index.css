@@ -1,7 +1,5 @@
 @import url('normalize.css/normalize');
 @import url('./layout/index.css');
-@import url('./pages/cats/index.css');
-@import url('./pages/main/index.css');
 @import url('./pages/users/index.css');
 @import url('./pages/feedback/index.css');
 @import url('./pages/mailing/index.css');

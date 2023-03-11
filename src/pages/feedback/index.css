@@ -14,6 +14,6 @@
 .default__card-controls {
 	margin-top: 10px;
 	display: flex;
-	justify-content: end;
+	justify-content: flex-end;
 	gap: 5px;
 }

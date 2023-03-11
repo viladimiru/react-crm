@@ -2,10 +2,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Main from './pages/main';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import Cats from './pages/cats';
 import Layout from './layout/index';
 import Login from './pages/login';
 import Users from './pages/users';
@@ -19,19 +17,11 @@ const router = createBrowserRouter([
 		element: <Layout />,
 		children: [
 			{
-				path: '/',
-				element: <Main />,
-			},
-			{
-				path: '/cats',
-				element: <Cats />,
-			},
-			{
 				path: '/login',
 				element: <Login />,
 			},
 			{
-				path: '/users',
+				path: '/',
 				element: <Users />,
 			},
 			{
