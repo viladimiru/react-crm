@@ -1,6 +1,4 @@
 import { useListQuery } from '../../store/feedback/feedback.api';
-import { Modal } from '../../components/Modal';
-import { useState } from 'react';
 import { FeedbackItem } from './FeedbackItem';
 
 function Feedback() {
